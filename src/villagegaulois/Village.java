@@ -81,6 +81,53 @@ public class Village {
 		}
 				return -1;
 	}
+		public Etal[] trouverEtals(String produit) {
+            		int c = 0;
+            		for (int i = 0; i < etals.length; i++) {
+                		if (etals[i].contientProduit(produit)) 
+                    			c++;
+           		 }
+
+           		Etal[] etalsAvecProduit = new Etal[c];
+            		int index = 0;
+
+            		for (int i = 0; i < etals.length; i++) {
+               			 if (etals[i].contientProduit(produit)) {
+                    			etalsAvecProduit[index] = etals[i];
+                   	 		index++;
+                		}
+            		}
+            		return etalsAvecProduit;
+        	}
+		public Etal trouverVendeur (Gaulois gaulois) {
+			for (int i=0; i<etals.length; i ++ ) {
+				Etal etal = etals[i];
+				if(etal.isEtalOccupe() && etal.getVendeur() == gaulois) {
+					return etal;  
+					}
+		}
+			return null;
+		} 
+		public String afficherMarche () {
+			StringBuilder result = new StringBuilder();
+			int nbEtalVide = 0;
+
+			for (int i = 0; i < etals.length; i++) {
+				Etal etal = etals[i];
+				if (etal.isEtalOccupe()) {
+					result.append(etal.afficherEtal()).append("\n");
+				} else {
+					nbEtalVide++;
+        }
+    }
+			if (nbEtalVide > 0) {
+				result.append("Il reste ").append(nbEtalVide).append(" etals non utilises dans le marche.\n");
+    }
+
+			return result.toString();
+		}
+		
+		
 	}
 	
 }
