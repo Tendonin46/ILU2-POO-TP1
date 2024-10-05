@@ -73,6 +73,14 @@ public class Village {
 				System.out.println("L'etal" + indiceEtal + " est deja occupe par " +etals[indiceEtal].getVendeur().getNom());
 		}	
 	    }
+		public int trouverEtalLibre() {
+			for (int i=0; i<etals.length; i++) {
+				if(!etals[i].isEtalOccupe()) {
+					return i;
+			}
+		}
+				return -1;
+	}
 	}
 	
 }
