@@ -128,7 +128,29 @@ public class Village {
 			return result.toString();
 		}
 		
-		
+		public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
+    int indiceEtalLibre = marche.trouverEtalLibre();
+    StringBuilder message = new StringBuilder();
+    
+    if (indiceEtalLibre != -1) {
+        marche.utiliserEtal(indiceEtalLibre, vendeur, produit, nbProduit);
+        message.append(vendeur.getNom())
+               .append(" vend ")
+               .append(nbProduit)
+               .append(" ")
+               .append(produit)
+               .append(" à l'etal ")
+               .append(indiceEtalLibre)
+               .append(".");
+    } else {
+        message.append("Aucun etal disponible pour installer le vendeur ")
+               .append(vendeur.getNom())
+               .append(".");
+    }
+    
+    return message.toString();
+}
+
 	}
 	
 }
