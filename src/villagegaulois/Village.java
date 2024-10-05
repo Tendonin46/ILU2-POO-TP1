@@ -66,10 +66,12 @@ public class Village {
 			}
 	        
 	    }
-	    public void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
-	        if (etals[indiceEtal] == null && indiceEtal >= 0 && indiceEtal < etals.length) {
-	            
-	        }
+	    public void utiliserEtal(int indiceEtal, Gaulois vendeur,String produit, int nbProduit) { 
+			if(!etals[indiceEtal].isEtalOccupe()) {
+				etals[indiceEtal].occuperEtal(vendeur, produit,nbProduit);
+			} else {
+				System.out.println("L'etal" + indiceEtal + " est deja occupe par " +etals[indiceEtal].getVendeur().getNom());
+		}	
 	    }
 	}
 	
