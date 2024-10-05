@@ -186,6 +186,9 @@ public class Village {
         return vendeur.getNom() + " n'est pas un vendeur dans le marche.";
     }
 }
+		public String afficherMarche() {
+		return marche.afficherMarche();
+}
 	}
 	
 }
