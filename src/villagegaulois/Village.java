@@ -176,6 +176,16 @@ public class Village {
 	public Etal rechercherEtal(Gaulois vendeur) {
 		return marche.trouverVendeur(vendeur);
 }
+
+	public String partirVendeur(Gaulois vendeur) throws EtalNonOccupeException {
+    Etal etal = marche.trouverVendeur(vendeur);
+    if (etal != null) {
+        etal.libererEtal();
+        return vendeur.getNom() + " quitte l etal.";
+    } else {
+        return vendeur.getNom() + " n'est pas un vendeur dans le marche.";
+    }
+}
 	}
 	
 }
